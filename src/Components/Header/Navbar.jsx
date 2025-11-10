@@ -19,8 +19,22 @@ const Navbar = () => {
         handleFirebaseSuccess("logout")
     }
 
-    return (
-        <div className=' bg-base-100  shadow-sm sticky top-0 z-[999] '>
+    const links = <>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/toys">Events</NavLink></li>
+        {
+            user
+                ? (
+                    <>
+                        <li><NavLink to="/profile">My Profile</NavLink></li>
+                    </>
+                )
+                : ""
+        }
+        </>
+
+        return (
+        <div className=' bg-base-100  shadow-sm sticky top-0 z-[999]'>
             <nav className="navbar max-w-[1536px] mx-auto px-4 sm:px-5 md:px-6 lg:px-8 ">
                 <div className="navbar-start">
                     <Link to="/" onClick={() => ScrollToTop()}  >
@@ -36,7 +50,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden md:flex">
                     <ul className="flex items-center gap-8 font-medium ">
-                        <li className='relative hover:border-2 border-[#632EE3] hover:px-4 py-1 rounded-sm transition-all duration-100 ease-in-out' >
+                        {/* <li className='relative hover:border-2 border-[#632EE3] hover:px-4 py-1 rounded-sm transition-all duration-100 ease-in-out' >
                             <NavLink to='/'>Home</NavLink>
                         </li>
                         <li className='relative hover:border-2 border-[#632EE3] hover:px-4 py-1 rounded-sm transition-all duration-100 ease-in-out ' >
@@ -44,7 +58,8 @@ const Navbar = () => {
                         </li>
                         <li className='relative hover:border-2 border-[#632EE3] hover:px-4 py-1 rounded-sm transition-all duration-100 ease-in-out ' >
                             <NavLink to='/installed-app' >Installation</NavLink>
-                        </li>
+                        </li> */}
+                        {links}
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -69,7 +84,7 @@ const Navbar = () => {
                 </div>
             </nav>
         </div>
-    );
+        );
 };
 
-export default Navbar;
+        export default Navbar;

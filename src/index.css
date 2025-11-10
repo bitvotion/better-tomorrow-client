@@ -71,3 +71,8 @@
   --depth: 0;
   --noise: 0;
 }
+
+.navbar-center .active {
+  border-bottom: 4px solid green;
+  border-radius: 3px;
+}
