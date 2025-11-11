@@ -87,7 +87,7 @@ const EventCard = ({ event }) => {
         </div>
       </div>
       <div className="justify-end w-full">
-          <Link to={`/events/${_id}`} className="btn btn-secondary border-none btn-block rounded-none text-lg h-14 hover:bg-linear-to-r from-primary to-secondary transition-all duration-500 ease-in-out ">
+          <Link to={`/event/details/${_id}`} className="btn btn-secondary border-none btn-block rounded-none text-lg h-14 hover:bg-linear-to-r from-primary to-secondary transition-all duration-500 ease-in-out ">
             <IoTicketOutline className="text-xl" /> View Event Details
           </Link>
         </div>

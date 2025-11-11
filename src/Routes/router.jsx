@@ -12,6 +12,7 @@ import Events from '../Pages/Events/Events';
 import CreateEvent from '../Components/CreateEvent/CreateEvent';
 import ManageEvents from '../Components/ManageEvents/ManageEvents';
 import JoinedEvents from '../Components/JoinedEvents/JoinedEvents';
+import EventDetails from '../Pages/Events/EventDetails';
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: 'profile',
                 Component: JoinedEvents,
+            },
+            {
+                path: 'event/details/:id',
+                Component: EventDetails,
             },
         ]
     },
