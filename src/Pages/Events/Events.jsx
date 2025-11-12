@@ -13,7 +13,6 @@ const Events = () => {
             setEvents(data.data)
         })
     },[axiosInstance])
-    console.log(events);
 
     return (
         <div className=' max-w-[1536px] mx-auto '>

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { Navigate, useNavigate, useParams } from 'react-router';
 import { format } from "date-fns";
 import useAxios from '../../Hooks/useAxios';
+import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/useAuth';
 
 
 const EventDetails = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
+  const { user } = useAuth()
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
-  console.log(event);
-
+const navigate = useNavigate()
   const axiosInstance = useAxios();
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const EventDetails = () => {
       try {
         setLoading(true);
         setError(null);
-        
+
         const response = await axiosInstance.get(`/events/${id}`);
         setEvent(response.data);
 
@@ -33,19 +34,75 @@ const EventDetails = () => {
 
     fetchEvent();
   }, [id, axiosInstance]);
+
+  const handleJoinEvent = async () => {
+
+    if (!user) {
+      // ene kichu korte hobe
+      
+        Swal.fire({
+          title: "Oops You haven't logged in",
+          text: "You need to log in your account to join this event",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Login"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate('/login')
+          }
+        });
+      
+      return 
+    }
+
+    const joinEventData = {
+      userEmail: user.email,
+      eventId: event._id
+    }
+
+    try {
+      const response = await axiosInstance.post('/joined', joinEventData);
+      if (response.data.insertedId) {
+        Swal.fire({
+          icon: "success",
+          title: "Wish you best of luck",
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      } else {
+        Swal.fire({
+          icon: "success",
+          title: "An unknown error occurred",
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      }
+    } catch (error) {
+      console.error("Failed to create event:", error.response.data.message);
+      Swal.fire({
+        icon: "error",
+        title: error.response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    }
+  }
+
   if (loading) {
     return <div className="text-center my-20"><span className="loading loading-lg"></span></div>
   }
 
   // Show error message
   if (error) {
-     return (
-        <div className="flex justify-center items-center min-h-[60vh]">
-            <div className="text-center text-red-500">
-                <h2 className="text-2xl font-bold">Oops!</h2>
-                <p>{error}</p>
-            </div>
+    return (
+      <div className="flex justify-center items-center min-h-[60vh]">
+        <div className="text-center text-red-500">
+          <h2 className="text-2xl font-bold">Oops!</h2>
+          <p>{error}</p>
         </div>
+      </div>
     );
   }
 
@@ -65,14 +122,14 @@ const EventDetails = () => {
           alt={event.title}
           className="w-full h-[400px] object-cover rounded-none"
         />
-        
+
         <div className="p-8">
           <h1 className="text-4xl font-bold mb-4">{event.title}</h1>
-          
+
           <div className="badge badge-primary badge-lg rounded-none mb-4">{event.eventType}</div>
-          
+
           <p className="text-xl mb-6">{event.location}</p>
-          
+
           <p className="text-base-content text-opacity-80 mb-8">
             {event.description}
           </p>
@@ -97,7 +154,7 @@ const EventDetails = () => {
             </div>
           </div>
 
-          <button className="btn btn-primary btn-lg btn-block rounded-none">
+          <button onClick={handleJoinEvent} className="btn btn-primary btn-lg btn-block rounded-none">
             Join This Event
           </button>
         </div>

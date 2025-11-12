@@ -49,7 +49,7 @@ const CreateEvent = () => {
       const response = await axiosInstance.post('/events', eventData);
       if (response.data.insertedId) {
         toast.success("Event created successfully!", { id: toastId });
-        navigate('/upcoming-events'); 
+        navigate('/event/upcoming'); 
       } else {
         toast.error("An unknown error occurred.", { id: toastId });
       }
