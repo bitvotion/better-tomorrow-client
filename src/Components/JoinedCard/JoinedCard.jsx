@@ -9,11 +9,11 @@ console.log(event);
     <motion.div
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
-      className="card bg-base-100 shadow-xl border border-base-300 hover:border-primary transition-all duration-300 overflow-hidden"
+      className="card bg-base-100 shadow-xl hover:border-primary transition-all duration-200 overflow-hidden"
     >
       <div className="card-body space-y-3 relative">
         {/* Accent Line */}
-        <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary to-accent rounded-r-md"></div>
+        <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary to-secondary rounded-r-md"></div>
 
         <h2 className="card-title text-2xl font-bold text-primary pl-3">
           {title}

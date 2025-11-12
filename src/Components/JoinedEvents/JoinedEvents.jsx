@@ -17,7 +17,7 @@ console.log(events);
                 setLoading(true);
                 setError(null);
 
-                const response = await axiosInstance.get(`/joined?email=${user.email}`);
+                const response = await axiosInstance.get(`/joined-events?email=${user.email}`);
                 setEvents(response.data);
 
             } catch (error) {
@@ -53,9 +53,9 @@ console.log(events);
     
 
     return (
-        <div>
+        <div className=' my-20 '>
 
-            <div>
+            <div className=' max-w-[1536px] mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6 '>
                 {
                     events.map(event=><JoinedCard key={event._id} event={event}></JoinedCard>)
                 }
