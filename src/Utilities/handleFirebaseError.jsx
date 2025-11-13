@@ -59,6 +59,9 @@ export const handleFirebaseError = (code) => {
   else if (code === "auth/missing-email") {
     toast.error("Please enter your email address.");
   } 
+  else if (code === "auth/missing-fields") {
+    toast.error("Please enter your email address and password.");
+  } 
   else if (code === "auth/account-exists-with-different-credential") {
     toast.error("An account already exists with the same email using different credentials.");
   } 

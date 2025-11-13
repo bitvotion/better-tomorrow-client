@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import logo from '../../assets/toytopia.png'
-import { FaEye, FaEyeSlash, FaFacebook, FaInstagram, FaPhotoVideo, FaTwitter, FaUser } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import Swal from 'sweetalert2';
 import registerBg from '../../assets/register.jpg'
@@ -148,8 +147,8 @@ const Register = () => {
       {/* Right Side: Login Form */}
       <div className="flex w-full h-screen items-center justify-center lg:w-1/2 bg-base-100">
         <div className="w-full max-w-md">
-          <h2 className="mb-4 text-3xl font-semibold text-base-content">
-            Welcome Back!
+          <h2 className="mb-4 text-4xl font-semibold text-base-content">
+            Join the Community
           </h2>
           <p className="mb-8 text-base-content">
             Connecting volunteers with communities in need across every corner of Bangladesh.

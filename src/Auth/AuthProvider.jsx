@@ -1,6 +1,8 @@
 import {
     createUserWithEmailAndPassword,
+    FacebookAuthProvider,
     GoogleAuthProvider,
+    OAuthProvider,
     onAuthStateChanged,
     sendPasswordResetEmail,
     signInWithEmailAndPassword,
@@ -13,6 +15,8 @@ import { AuthContext } from './AuthContext';
 import { auth } from '../Firebase/firebase.config';
 
 const googleProvider = new GoogleAuthProvider()
+const facebookProvider = new FacebookAuthProvider()
+const appleProvider = new OAuthProvider()
 
 const AuthProvider = ({ children }) => {
 
@@ -45,6 +49,18 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider)
     }
 
+    // Google Sign In
+    const signInWithFacebook = () => {
+        setLoading(true)
+        return signInWithPopup(auth, facebookProvider)
+    }
+
+    // Google Sign In
+    const signInWithApple = () => {
+        setLoading(true)
+        return signInWithPopup(auth, appleProvider)
+    }
+
     // Sign Out User
     const signOutUser = () => {
         setLoading(true)
@@ -69,6 +85,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         signInUser,
         signInWithGoogle,
+        signInWithFacebook,
+        signInWithApple,
         signOutUser,
         updateUserProfile,
         forgetPassword,

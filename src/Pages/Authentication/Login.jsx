@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { FaGoogle, FaFacebookF, FaApple, FaRegEnvelope, FaEyeSlash, FaEye } from 'react-icons/fa';
+import { FaGoogle, FaFacebookF, FaApple, FaRegEnvelope, FaEyeSlash, FaEye, FaLock } from 'react-icons/fa';
 import loginBg from '../../assets/register-bg.jpg'
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
@@ -17,7 +17,7 @@ const Login = () => {
     user
   } = useAuth()
 
-    const axiosInstance = useAxios()
+  const axiosInstance = useAxios()
 
   const [showPwd, setShowPwd] = useState(false)
   const location = useLocation();
@@ -33,6 +33,12 @@ const Login = () => {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
+
+
+    if (!email || !password) {
+      handleFirebaseError("auth/missing-fields");
+      return;
+    }
 
     signInUser(email, password)
       .then(() => {
@@ -74,6 +80,7 @@ const Login = () => {
   }
 
 
+
   const handleShowPwd = (e) => {
     e.preventDefault()
     setShowPwd(!showPwd)
@@ -85,13 +92,17 @@ const Login = () => {
       {/* Left Side: Logo and Banner */}
       <div className="relative hidden w-1/2 flex-col justify-between overflow-hidden lg:flex">
         <img src={loginBg} className='h-full w-full overflow-hidden object-cover ' alt="" />
+        <div class="absolute top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white p-4 bg-black/30 py-10 px-20 w-4/5 rounded-2xl">
+          <h1 className='text-4xl font-bold text-center mb-6'>Better Tomorrow</h1>
+          <p className='text-center text-xl'>Explore Events. Make Connections. Create Memories.</p>
+        </div>
       </div>
 
       {/* Right Side: Login Form */}
       <div className="flex w-full items-center justify-center p-8 lg:w-1/2 bg-base-100">
         <div className="w-full max-w-md">
           <h2 className="mb-4 text-3xl font-semibold text-base-content">
-            Welcome Back!
+            Welcome Back
           </h2>
           <p className="mb-8 text-base-content">
             Connecting volunteers with communities in need across every corner of Bangladesh.
@@ -105,6 +116,7 @@ const Login = () => {
               </label>
               <div className="relative">
                 <input
+                  required
                   type="email"
                   id="email"
                   name="email"
@@ -126,10 +138,11 @@ const Login = () => {
                 placeholder="Create a password"
                 className="w-full rounded-lg border border-gray-300 p-3 pl-10 focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
               />
+              <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
               {
                 showPwd
-                  ? <button onClick={handleShowPwd}><FaEye className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" /></button>
-                  : <button onClick={handleShowPwd} ><FaEyeSlash className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" /></button>
+                  ? <button onClick={handleShowPwd}><FaEye className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" /></button>
+                  : <button onClick={handleShowPwd} ><FaEyeSlash className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" /></button>
               }
 
             </div>
