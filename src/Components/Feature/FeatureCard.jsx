@@ -2,7 +2,7 @@ import React from 'react';
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
-    <div className="card bg-base-200 rounded shadow-lg  border-base-300">
+    <div className="card bg-primary/10 rounded shadow-lg ">
       <div className="card-body items-center text-center p-8">
         {/* The Icon */}
         <div className="text-primary mb-4">

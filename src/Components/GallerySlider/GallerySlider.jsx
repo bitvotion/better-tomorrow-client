@@ -66,7 +66,6 @@ const GallerySlider = () => {
                         slideShadows: false,
                         scale: 1.2 
                     }}
-                    pagination={{ clickable: true }}
                     breakpoints={{
                         320: { slidesPerView: 1 },
                         640: { slidesPerView: 1.5 },

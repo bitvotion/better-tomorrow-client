@@ -18,7 +18,7 @@ const NewsletterSection = () => {
   };
 
   return (
-    <section className="bg-primary/20 py-20 max-w-[1536px] px-4 mx-auto rounded">
+    <section className="bg-primary/20 my-10 py-20 max-w-[1536px] px-4 mx-auto rounded">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           

@@ -14,12 +14,13 @@ import ManageEvents from '../Components/ManageEvents/ManageEvents';
 import JoinedEvents from '../Components/JoinedEvents/JoinedEvents';
 import EventDetails from '../Pages/Events/EventDetails';
 import ProgressTracker from './ProgressTracker';
+import Profile from '../Components/Profile/Profile';
 
 const router = createBrowserRouter([
     {
         path: "/",
         Component: HomeLayout,
-        hydrateFallbackElement: <p>Loading wait load nek</p>,
+        hydrateFallbackElement: <p>Loading.......</p>,
         children: [
             {
                 index: true,
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'profile',
-                Component: JoinedEvents,
+                Component: Profile,
             },
             {
                 path: 'event/details/:id',
