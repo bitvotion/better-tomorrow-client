@@ -4,6 +4,7 @@ import useAuth from '../../Hooks/useAuth';
 import Banner from '../../Components/Banner/Banner';
 import Feature from '../../Components/Feature/Feature';
 import GallerySlider from '../../Components/GallerySlider/GallerySlider';
+import NewsletterSection from '../../Components/NewsletterSection/NewsletterSection';
 
 const Home = () => {
 
@@ -12,7 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <Feature></Feature>
             <GallerySlider></GallerySlider>
-            newsletter
+            <NewsletterSection></NewsletterSection>>
         </div>
     );
 };
