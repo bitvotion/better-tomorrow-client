@@ -9,3 +9,6 @@ const useAxios = () => {
 }
 
 export default useAxios
+
+// 'http://localhost:3000'
+// 'https://better-tomorrow-server.vercel.app'

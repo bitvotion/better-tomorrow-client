@@ -3,6 +3,7 @@ import useAuth from '../../Hooks/useAuth';
 import useAxios from '../../Hooks/useAxios';
 import ManageEventCard from '../ManageEventCard/ManageEventCard';
 import Loader from '../Loader/Loader';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const ManageEvents = () => {
 
@@ -11,6 +12,7 @@ const ManageEvents = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const axiosInstance = useAxios()
+    const axiosSecure = useAxiosSecure()
     console.log(events);
     useEffect(() => {
         const fetchEvent = async () => {
@@ -18,7 +20,7 @@ const ManageEvents = () => {
                 setLoading(true);
                 setError(null);
 
-                const response = await axiosInstance.get(`/myevents?email=${user.email}`);
+                const response = await axiosSecure.get(`/myevents?email=${user.email}`);
                 setEvents(response.data);
 
             } catch (error) {
@@ -48,7 +50,7 @@ const ManageEvents = () => {
     // Delete handler
     const handleDelete = async (id) => {
         try {
-            await axiosInstance.delete(`/events/${id}`);
+            await axiosSecure.delete(`/events/${id}`);
             setEvents(prev => prev.filter(e => e._id !== id));
         } catch (error) {
             console.error("Failed to delete event:", error);

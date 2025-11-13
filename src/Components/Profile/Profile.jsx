@@ -17,6 +17,7 @@ const Profile = () => {
   const [saving, setSaving] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
+  console.log(user);
 
   useEffect(() => {
     if (user) {

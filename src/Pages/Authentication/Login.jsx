@@ -34,14 +34,14 @@ const Login = () => {
     const email = e.target.email.value
     const password = e.target.password.value
 
-
     if (!email || !password) {
       handleFirebaseError("auth/missing-fields");
       return;
     }
 
     signInUser(email, password)
-      .then(() => {
+      .then((user) => {
+        console.log(user);
         e.target.reset()
         handleFirebaseSuccess("login")
         const from = location?.state?.from?.pathname || "/";

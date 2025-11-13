@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router';
 import HomeLayout from '../Layout/HomeLayout';
 import Home from '../Pages/Home/Home';
 import AuthLayout from '../Layout/AuthLayout';
-import Error404 from '../Pages/Error404/Error404';
+
 import ForgotPassword from '../Pages/Authentication/ForgotPassword';
 import Register from '../Pages/Authentication/Register';
 import Login from '../Pages/Authentication/Login';
@@ -15,6 +15,10 @@ import JoinedEvents from '../Components/JoinedEvents/JoinedEvents';
 import EventDetails from '../Pages/Events/EventDetails';
 import ProgressTracker from './ProgressTracker';
 import Profile from '../Components/Profile/Profile';
+import PrivateRoute from './PrivateRoute';
+import JoinedCard from '../Components/JoinedCard/JoinedCard';
+import Error404 from '../Pages/ErrorPages/Error404';
+import NotFound from '../Pages/ErrorPages/NotFound';
 
 const router = createBrowserRouter([
     {
@@ -32,23 +36,24 @@ const router = createBrowserRouter([
             },
             {
                 path: 'event/create',
-                Component: CreateEvent,
+                element: <PrivateRoute><CreateEvent></CreateEvent></PrivateRoute>
             },
             {
                 path: 'event/manage',
-                Component: ManageEvents,
+                element: <PrivateRoute><ManageEvents></ManageEvents></PrivateRoute>
             },
             {
                 path: 'event/joined',
-                Component: JoinedEvents,
+                element: <PrivateRoute><JoinedCard></JoinedCard></PrivateRoute>
             },
             {
                 path: 'profile',
-                Component: Profile,
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
             },
             {
                 path: 'event/details/:id',
                 Component: EventDetails,
+                errorElement: <NotFound></NotFound>,
             },
         ]
     },

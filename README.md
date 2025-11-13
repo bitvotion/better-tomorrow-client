@@ -1,16 +1,54 @@
-# React + Vite
+# Better Tomorrow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live Site](https://img.shields.io/badge/Live-Site-blue?style=for-the-badge)](https://better-tomorrow-ahm.netlify.app/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+**Better Tomorrow** is an interactive event management platform designed to help users **discover, join, and manage meaningful events** seamlessly. The platform emphasizes user-friendly navigation, real-time updates, and secure authentication using **Firebase**, providing a reliable and engaging experience for both event creators and participants.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **User Authentication:** Secure login and signup using Firebase Authentication.
+- **Event Management:** Create, update, delete, and view events.
+- **Join Events:** Users can join events and see their joined events.
+- **Upcoming Events:** Filter and search upcoming events by type and title.
+- **Responsive UI:** Modern, responsive interface using TailwindCSS and DaisyUI.
+- **Smooth Animations:** Interactive UI powered by Framer Motion.
+- **Date Selection:** React Datepicker for selecting event dates and times.
+- **Notifications & Alerts:** React Hot Toast for real-time notifications and SweetAlert2 for elegant alerts.
+- **Event Sliders:** Swiper integration for event highlights.
+- **Loading States:** React Spinners for smooth user experience during data fetch.
+- **Icons & Visuals:** React Icons for intuitive visual elements.
+- **Date Handling:** Date-fns for accurate date formatting and manipulation.
+
+---
+
+## Tech Stack
+
+![React](https://img.shields.io/badge/React-19.1.1-blue?style=flat-square)
+![Axios](https://img.shields.io/badge/Axios-1.13.2-orange?style=flat-square)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.17-teal?style=flat-square)
+![DaisyUI](https://img.shields.io/badge/DaisyUI-5.4.7-purple?style=flat-square)
+![Firebase](https://img.shields.io/badge/Firebase-12.5.0-yellow?style=flat-square)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.23.24-pink?style=flat-square)
+![React Router](https://img.shields.io/badge/React_Router-7.9.5-red?style=flat-square)
+![Date-fns](https://img.shields.io/badge/Date-fns-4.1.0-green?style=flat-square)
+![React Datepicker](https://img.shields.io/badge/React_Datepicker-8.9.0-blue?style=flat-square)
+![React Hot Toast](https://img.shields.io/badge/React_Hot_Toast-2.6.0-yellow?style=flat-square)
+![SweetAlert2](https://img.shields.io/badge/SweetAlert2-11.26.3-red?style=flat-square)
+![Swiper](https://img.shields.io/badge/Swiper-12.0.3-blue?style=flat-square)
+![React Spinners](https://img.shields.io/badge/React_Spinners-0.17.0-purple?style=flat-square)
+![React Icons](https://img.shields.io/badge/React_Icons-5.5.0-cyan?style=flat-square)
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/better-tomorrow.git
