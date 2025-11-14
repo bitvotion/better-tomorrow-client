@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import useAxios from '../../Hooks/useAxios';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 
 const EventDetails = () => {
@@ -16,6 +17,7 @@ const EventDetails = () => {
   const location = useLocation()
   const axiosInstance = useAxios();
   const [joining, setJoining] = useState(false)
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -64,7 +66,7 @@ const EventDetails = () => {
 
     try {
       setJoining(true)
-      const response = await axiosInstance.post('/joined', joinEventData);
+      const response = await axiosSecure.post('/joined', joinEventData);
       if (response.data.insertedId) {
         Swal.fire({
           icon: "success",

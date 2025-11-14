@@ -4,13 +4,11 @@ import toast from 'react-hot-toast';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from '../../Hooks/useAuth';
-import useAxios from '../../Hooks/useAxios';
 import { FaMapMarkerAlt, FaCalendarAlt, FaImage, FaTag } from 'react-icons/fa';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const CreateEvent = () => {
   const { user } = useAuth();
-  const axiosInstance = useAxios();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure()
 

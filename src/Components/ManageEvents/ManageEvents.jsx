@@ -5,14 +5,25 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Loader from '../Loader/Loader';
 import ManageEventCard from '../ManageEventCard/ManageEventCard';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router';
+import { FaCalendarAlt, FaPlusCircle, FaUsers } from 'react-icons/fa';
+
 
 const ManageEvents = () => {
 
     const { user } = useAuth()
     const [events, setEvents] = useState([])
-    const axiosInstance = useAxios()
     const axiosSecure = useAxiosSecure()
     const [dataLoading, setDataLoading] = useState(true)
+
+    const cards = [
+        {
+            title: "Create An Event",
+            link: "/event/create",
+            icon: <FaPlusCircle className="text-3xl text-secondary" />,
+            bg: "bg-secondary"
+        }
+    ];
 
     useEffect(() => {
         setDataLoading(true)
@@ -38,29 +49,29 @@ const ManageEvents = () => {
     //     }
     // };
 
-    const handleUpdate2 = async ( _id, updatedData) => {
+    const handleUpdate2 = async (_id, updatedData) => {
         // e.preventDefault()
 
         const toastId = toast.loading("Updating your event...")
         try {
-            const response = await axiosInstance.patch(`/events/${_id}`, updatedData)
+            const response = await axiosSecure.patch(`/events/${_id}`, updatedData)
             if (response.data.modifiedCount) {
-                toast.success("Event updated succesfully!", { id: toastId })
+                toast.success("Event updated successfully!", { id: toastId })
                 // navigate('/events/manage')
-                setEvents(prev=>prev.map(ev=>ev._id ===_id? {...ev, ...updatedData} : ev))
+                setEvents(prev => prev.map(ev => ev._id === _id ? { ...ev, ...updatedData } : ev))
             } else {
                 toast.error("An unknown error occurred", { id: toastId })
             }
         } catch (error) {
-            console.log("Failed to update event",error);
-            toast.error("Failed to update event. Please try again", {id: toastId})
+            console.log("Failed to update event", error);
+            toast.error("Failed to update event. Please try again", { id: toastId })
         }
     }
 
     // Delete handler
     const handleDelete = async (id) => {
         try {
-            const response = await axiosInstance.delete(`/events/${id}`);
+            const response = await axiosSecure.delete(`/events/${id}`);
             if (response.data.deletedCount === 1) {
                 setEvents(prev => prev.filter(e => e._id !== id));
             }
@@ -74,8 +85,22 @@ const ManageEvents = () => {
 
     if (dataLoading) return <Loader></Loader>
 
-    if (!events) {
-        return <div className="text-center my-20"><h2>Event not found.</h2></div>;
+    if (!events.length) {
+        return (
+            <div className="my-20 max-w-sm mx-auto px-4 ">
+                <h2 className="text-center text-xl mb-8 font-semibold">You haven't hosted any event! Create your first event</h2>
+                {cards.map((card, idx) => (
+                    <Link
+                        to={card.link}
+                        key={idx}
+                        className={`${card.bg} rounded-xl shadow-lg p-6 flex flex-col items-center justify-center gap-3 hover:scale-105 transform transition duration-300`}
+                    >
+                        <div className="p-4 bg-white rounded-full">{card.icon}</div>
+                        <h3 className="text-white text-lg font-bold text-center">{card.title}</h3>
+                    </Link>
+                ))}
+            </div>
+        )
     }
 
     return (
@@ -89,7 +114,8 @@ const ManageEvents = () => {
                         onUpdate={handleUpdate2}
                         onDelete={handleDelete}
                     />
-                ))}
+                ))
+                }
             </div>
         </div>
     );

@@ -6,19 +6,19 @@ const ShortcutCards = () => {
   const cards = [
     {
       title: "Manage Events",
-      link: "/events/manage",
+      link: "/event/manage",
       icon: <FaCalendarAlt className="text-3xl text-primary" />,
       bg: "bg-primary"
     },
     {
       title: "Create An Event",
-      link: "/events/create",
+      link: "/event/create",
       icon: <FaPlusCircle className="text-3xl text-secondary" />,
       bg: "bg-secondary"
     },
     {
       title: "Your Joined Events",
-      link: "/events/joined",
+      link: "/event/joined",
       icon: <FaUsers className="text-3xl text-accent" />,
       bg: "bg-accent"
     }
