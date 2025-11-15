@@ -77,7 +77,7 @@ const CreateEvent = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="e.g., Mirpur 10 Road Cleanup"
+                placeholder="e.g., Blood donation at Mirpur"
                 className="w-full rounded-lg border border-gray-300 p-3 pl-10 focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
