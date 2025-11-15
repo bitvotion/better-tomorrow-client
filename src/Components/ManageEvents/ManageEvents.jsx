@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
-import useAxios from '../../Hooks/useAxios';
+
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Loader from '../Loader/Loader';
 import ManageEventCard from '../ManageEventCard/ManageEventCard';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router';
-import { FaCalendarAlt, FaPlusCircle, FaUsers } from 'react-icons/fa';
+import { FaPlusCircle } from 'react-icons/fa';
 
 
 const ManageEvents = () => {
@@ -104,7 +104,7 @@ const ManageEvents = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto p-6">
+        <div className="max-w-[1536px] min-h-screen mx-auto p-6">
             <h1 className="text-3xl font-bold mb-6 text-center">Manage Your Events</h1>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {events.map(event => (

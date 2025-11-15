@@ -18,7 +18,9 @@ const HomeLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className='overflow-hidden'>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
             <Toaster
               position="top-center"

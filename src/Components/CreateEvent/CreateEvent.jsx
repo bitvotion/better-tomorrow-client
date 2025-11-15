@@ -60,7 +60,7 @@ const CreateEvent = () => {
   };
 
   return (
-    <div className="flex w-full md:py-12 lg:py-20 items-center justify-center bg-base-200">
+    <div className="flex w-full min-h-screen md:py-12 lg:py-20 items-center justify-center bg-base-200">
       <div className="w-full max-w-2xl bg-base-100 p-10 rounded-xl shadow-lg">
         <h2 className="mb-2 text-3xl font-semibold text-base-content text-center">
           Create a New Event
@@ -113,6 +113,7 @@ const CreateEvent = () => {
                 <option>Cleanup</option>
                 <option>Plantation</option>
                 <option>Donation</option>
+                <option>Blood Donation</option>
                 <option>Education</option>
                 <option>Food Drive</option>
                 <option>Other</option>

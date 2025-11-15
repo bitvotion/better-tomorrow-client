@@ -40,6 +40,7 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to="/" className={getActiveClass}>Home</NavLink></li>
         <li><NavLink to="/events" className={getActiveClass}>Upcoming Events</NavLink></li>
+        <li><NavLink to="/about" className={getActiveClass}>About Us</NavLink></li>
     </>
 
     const eventLinks = <>
@@ -69,6 +70,7 @@ const Navbar = () => {
         }
         <li><NavLink to="/" className={getSidebarActiveClass}>Home</NavLink></li>
         <li><NavLink to="/events" className={getSidebarActiveClass}>Upcoming Events</NavLink></li>
+        <li><NavLink to="/about" className={getSidebarActiveClass}>About Us</NavLink></li>
         {
             user
                 ? (
@@ -83,7 +85,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className=' bg-base-100  shadow-sm sticky top-0 z-[999]'>
+        <div className=' bg-base-100 h-20 flex justify-center items-center shadow-sm sticky top-0 z-[999]'>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <nav className="navbar max-w-[1536px] mx-auto px-4 sm:px-5 md:px-6 lg:px-8 ">
                 <div className="navbar-start">

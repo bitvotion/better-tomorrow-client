@@ -14,6 +14,7 @@ import EventDetails from '../Pages/Events/EventDetails';
 import Profile from '../Components/Profile/Profile';
 import PrivateRoute from './PrivateRoute';
 import Error404 from '../Pages/ErrorPages/Error404';
+import AboutPage from '../Pages/About/AboutPage';
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
                 path: 'event/details/:id',
                 Component: EventDetails,
             },
+            {
+                path: 'about',
+                Component: AboutPage,
+            }
         ]
     },
     {

@@ -31,7 +31,7 @@ const Events = () => {
     const handleFilterChange = (e) => setFilter(e.target.value)
 
     return (
-        <div className=' max-w-[1536px] mx-auto mt-20 px-4'>
+        <div className=' max-w-[1536px] mx-auto min-h-screen mt-20 px-4'>
             <title>Upcoming Events</title>
             <h1 className=' text-3xl md:text-5xl text-center font-semibold mb-10'>Upcoming Events</h1>
             <div className="md:flex justify-between mx-auto">
@@ -87,8 +87,10 @@ const Events = () => {
                                 <EventCardSkeleton key={6} />
                                 </>
                             )
-                        :!events
-                            ? <p>No Events Available</p>
+                        :!events.length
+                            ? (<div className=' md:col-span-2 lg:col-span-3 '>
+                                <h2 className='text-center text-accent text-3xl font-semibold'>No Events Found..!</h2>
+                            </div>)
                             : events.map((event) => <EventCard key={event._id} event={event} ></EventCard>)
                 }
             </div>

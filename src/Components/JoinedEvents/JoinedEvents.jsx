@@ -52,7 +52,7 @@ const JoinedEvents = () => {
 
   if (!events.length) {
     return (
-      <div className="max-w-[1536px] mx-auto px-4 my-20">
+      <div className="min-h-screen max-w-[1536px] mx-auto px-4 my-20">
         <h2 className="font-semibold text-2xl text-center mb-4">
           You haven't Joined any event!
         </h2>
@@ -69,7 +69,7 @@ const JoinedEvents = () => {
 
 
   return (
-    <div className=' my-20 '>
+    <div className='max-w-[1536px] mx-auto min-h-screen my-20 '>
       <h1 className=' text-3xl md:text-5xl text-center font-semibold mb-10'>Joined Events</h1>
       <div className=' max-w-[1536px] mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6 '>
         {

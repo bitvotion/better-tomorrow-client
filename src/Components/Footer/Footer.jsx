@@ -69,11 +69,11 @@ const Footer = () => {
                     <div className='flex-1'>
                         <h2 className=' text-2xl font-medium text-gray-200 mb-6'>Site Map</h2>
                         <ul className='*:mb-2 text-gray-400 *:hover:text-gray-300 *:hover:underline'>
-                            <li><Link>Homepage</Link></li>
-                            <li><Link>About</Link></li>
-                            <li><Link>Events</Link></li>
-                            <li><Link>Gallery</Link></li>
-                            <li><Link>Blogs</Link></li>
+                            <li><Link to='/'>Homepage</Link></li>
+                            <li><Link to='/about'>About</Link></li>
+                            <li><Link to='/events'>Events</Link></li>
+                            <li><Link to='/gallery' >Gallery</Link></li>
+                            <li><Link to='/blogs' >Blogs</Link></li>
                             <li><Link>Contact</Link></li>
                             <li><Link>Portal</Link></li>
                         </ul>
