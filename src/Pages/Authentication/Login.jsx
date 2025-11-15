@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaGoogle, FaFacebookF, FaApple, FaRegEnvelope, FaEyeSlash, FaEye, FaLock } from 'react-icons/fa';
+import { FaFacebookF, FaApple, FaRegEnvelope, FaEyeSlash, FaEye, FaLock } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import loginBg from '../../assets/register-bg.jpg'
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
@@ -139,7 +140,7 @@ const Login = () => {
                 type={showPwd ? "text" : "password"}
                 id="password"
                 name="password"
-                placeholder="Create a password"
+                placeholder="password"
                 className="w-full rounded-lg border border-gray-300 p-3 pl-10 focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
               />
               <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -177,7 +178,7 @@ const Login = () => {
           {/* Social Logins */}
           <div className="flex justify-center gap-4">
             <button onClick={handleGoogleSignIn} className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 text-xl text-gray-500 transition duration-200 hover:bg-gray-50">
-              <FaGoogle />
+              <FcGoogle />
             </button>
             <button className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 text-xl text-blue-600 transition duration-200 hover:bg-gray-50">
               <FaFacebookF />
