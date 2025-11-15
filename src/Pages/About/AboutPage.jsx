@@ -1,12 +1,23 @@
 import React from "react";
 import image from '../../assets/newsletter.jpg'
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 const AboutPage = () => {
 
     const {user} = useAuth()
+    const navigate = useNavigate()
+
+    const handleJoin = () => {
+        if(user) {
+            toast.success("You are already a part of our family. Stay tuned!")
+        }
+       else{
+         navigate('/register')
+       }
+    }
 
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center py-12 px-4">
@@ -28,7 +39,7 @@ const AboutPage = () => {
           <p className=" text-base-content md:text-lg mb-6">
             Join us in our journey to build a brighter, more inclusive tomorrow.
           </p>
-          <button className="btn btn-secondary btn-lg "> 
+          <button onClick={handleJoin} className="btn btn-secondary btn-lg "> 
             Join Us
           </button>
         </div>
